@@ -19,3 +19,15 @@ def album(request):
     user=request.user
     albums=Album.objects.filter(user=user)
     return render(request,'Gallerystart/album.html',{'albums':albums})
+
+def showcategoryalbum(request,data=None):
+    albums=None
+    if data in ["dashain","tihar","picnic","others"]:
+        albums=Album.objects.filter(classification=data)
+    elif data==None:
+        albums=Album.objects.all()
+    else:
+        albums=Album.objects.filter(classification='dashain')
+    return render(request,'Gallerystart/album.html',{'albums':albums,'data':data})
+    
+    

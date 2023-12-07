@@ -6,6 +6,12 @@
     <title>Album</title>
 </head>
 <body>
+    
+    <a href="{%url 'showalbum' 'dashain' %}">Dashain</a>
+    <a href="{% url 'showalbum' 'tihar' %}">Tihar</a>
+    <a href="{% url 'showalbum' 'picnic'%}">Picnic</a>
+    <a href="{%url 'showalbum' 'others'%}">others</a>
+    <a href="{%url 'album' %}">all</a>
     <div style="height: 500px; width:500px">
     {%for album in albums %}
     <img src="{{album.photo.url}}" alt="">
