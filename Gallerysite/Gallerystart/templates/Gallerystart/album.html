@@ -7,7 +7,7 @@
       <div class="list-group">
        <a href="{% url 'album' %}" class="list-group-item list-group-item-action" aria-current="true">All Photo</a>
        <a href="{% url 'showalbum' 'dashain' %}" class="list-group-item list-group-item-action" aria-current="true" >Dashain</a>
-       <a href="{% url 'showalbum' 'tihar' %}" class="list-group-item list-group-item-action" aria-current="true">Tihar</a>
+       <a href="{% url 'showalbum' 'tihar' %}"  class="list-group-item list-group-item-action" aria-current="true">Tihar</a>
        <a href="{% url 'showalbum' 'picnic' %}" class="list-group-item list-group-item-action" aria-current="true">Picnic</a>
        <a href="{% url 'showalbum' 'others' %}" class="list-group-item list-group-item-action" aria-current="true">others</a>
        
@@ -17,15 +17,15 @@
     
      <div class="col-sm-8">
         <div class="row">
-           {%for album in albums%}
-           <div class="col-sm-4 text-center mb-5">
+           {% for album in albums %}
+           <div class="col-sm-4 text-center mb-5 border border-dark rounded p-3">
                <a href="{% url 'showalbum' album.id %}">
                    <div class="item">
-                       <img src="{{album.photo.url}}" alt="" height="150" width="200" class="">
+                       <img src="{{album.photo.url}}" alt="" height="100%" width="100%" class="">
                        <div class="fw-bold"></div>
                        <div class="fw-bold">
                            <small class="fw-light text-decoration-through-line">
-                              
+                              <a href="{%url 'deletephoto' album.id%}" class="btn btn-danger mt-5">Delete</a>
    
                            </small>
                        </div>
