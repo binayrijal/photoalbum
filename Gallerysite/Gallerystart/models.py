@@ -6,5 +6,5 @@ from django.contrib.auth.models import User
 class Album(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     photo=models.ImageField(upload_to='image',null=True,blank=True)
-    classification=models.CharField(max_length=50)
+    classification=models.CharField(blank=True,max_length=50)
     
