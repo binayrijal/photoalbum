@@ -24,10 +24,14 @@ def showcategoryalbum(request,data=None):
     albums=None
     if data in ["dashain","tihar","picnic","others"]:
         albums=Album.objects.filter(classification=data)
-    elif data==None:
+    elif data=='all':
+
         albums=Album.objects.all()
+
     else:
+
         albums=Album.objects.filter(classification='dashain')
+
     return render(request,'Gallerystart/album.html',{'albums':albums,'data':data})
     
     
