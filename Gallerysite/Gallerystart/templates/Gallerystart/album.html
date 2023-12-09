@@ -18,13 +18,13 @@
      <div class="col-sm-8">
         <div class="row">
            {% for album in albums %}
-           <div class="col-sm-4 text-center mb-5 border border-dark rounded p-3">
+           <div class="col-sm-3  text-center mb-5  p-3">
                <a href="{% url 'showalbum' album.id %}">
                    <div class="item">
                        <img src="{{album.photo.url}}" alt="" height="100%" width="100%" class="">
-                       <div class="fw-bold"></div>
                        <div class="fw-bold">
                            <small class="fw-light text-decoration-through-line">
+
                               <a href="{%url 'deletephoto' album.id%}" class="btn btn-danger mt-5">Delete</a>
    
                            </small>
@@ -39,7 +39,7 @@
    
      </div>
     </div>
-   </div>
+</div>
    
 
 

@@ -34,7 +34,7 @@ def showcategoryalbum(request,data=None):
     else:
         albums=Album.objects.all()
 
-    return render(request,'Gallerystart/album.html',{'albums':albums})
+    return render(request,'Gallerystart/album.html',{'albums':albums,'data':data})
     
 
 def deletephoto(request,id=None):
