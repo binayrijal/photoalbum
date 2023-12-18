@@ -30,13 +30,14 @@ def showcategoryalbum(request,data=None):
     user=request.user
     if data in ["dashain","tihar","picnic"]:
 
-        albums=Album.objects.filter(Q(classification=data)|Q(user=user))
+        albums=Album.objects.filter(Q(classification=data) & Q(user=user))
 
     
     elif data == "others":
         
-        albums=Album.objects.filter(Q(classification="") | Q(classification=data))
+        albums=Album.objects.filter(Q(classification="") | Q(classification=data) & Q(user=user))
     else:
+        
         albums=Album.objects.all()
 
     return render(request,'Gallerystart/album.html',{'albums':albums,'data':data})
