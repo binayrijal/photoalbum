@@ -4,7 +4,7 @@
        
     <div class="py-5 px-5 text-center bg-secondary text-black ">
         {%if user.is_authenticated%}
-        <h1 class="mb-3">upload Image</h1>
+        <h1 class="mb-3 text-bold">Upload Image</h1>
         
          <form action="" method="post" enctype="multipart/form-data" >
             {%csrf_token%}

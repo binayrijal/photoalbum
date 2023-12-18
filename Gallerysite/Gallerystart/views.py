@@ -28,17 +28,21 @@ def album(request):
 def showcategoryalbum(request,data=None):
     albums=None
     user=request.user
-    if data in ["dashain","tihar","picnic"]:
+    if data:
+     data=data.lower()
+     if data in ["dashain","tihar","picnic"]:
 
         albums=Album.objects.filter(Q(classification=data) & Q(user=user))
 
     
-    elif data == "others":
+     elif data == "others":
         
         albums=Album.objects.filter(Q(classification="") | Q(classification=data) & Q(user=user))
-    else:
+     else:
         
         albums=Album.objects.all()
+    else:
+       return render(request,'Gallerystart/album.html',{'albums':albums,'data':data})
 
     return render(request,'Gallerystart/album.html',{'albums':albums,'data':data})
     
